@@ -1,6 +1,6 @@
 import unittest
-import src.bmiFunctions
-import src.retFunctions
+import src.bmiFunctions as bmiFunctions
+import src.retFunctions as retFunctions
 
 class test_calculations(unittest.TestCase):
     def test_calcBMI(self):

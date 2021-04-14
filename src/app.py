@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request
-import src.bmiFunctions
-import src.retFunctions
+import src.bmiFunctions as bmiFunctions
+import src.retFunctions as retFunctions
 
 app = Flask(__name__)
 
