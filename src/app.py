@@ -1,8 +1,9 @@
 from flask import Flask, render_template, request
-import src.bmiFunctions as bmiFunctions
-import src.retFunctions as retFunctions
+import bmiFunctions
+import retFunctions
 
 app = Flask(__name__)
+app.secret_key = '123'
 
 @app.route('/')
 def main():
@@ -35,8 +36,9 @@ def getRetAge():
     perSaved = str(perSaved)
     goal = str(goal)
 
-    retAge = retFunctions.getRetirementAge(int(age), int(salary), int(perSaved), int(goal))
+    retAge = retFunctions.getRetirementAge(int(age), int(salary), float(perSaved), int(goal))
     retCat = retFunctions.getRetirementCategory(retAge)
     return render_template('main.html', retAge = "Your retirement age is: " + str(retAge) + " - " + retCat, currentAge = age, salary=salary, perSaved=perSaved, goal=goal)
 
-app.run(host='localhost', port='5050')
+#host='localhost', port='5050'
+app.run()
