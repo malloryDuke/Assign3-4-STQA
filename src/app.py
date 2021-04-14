@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request
-from src import bmiFunctions
-from src import retFunctions
+import bmiFunctions
+import retFunctions
 
 app = Flask(__name__)
 
@@ -39,4 +39,4 @@ def getRetAge():
     retCat = retFunctions.getRetirementCategory(retAge)
     return render_template('main.html', retAge = "Your retirement age is: " + str(retAge) + " - " + retCat, currentAge = age, salary=salary, perSaved=perSaved, goal=goal)
 
-app.run(host='localhost', port='4449')
+app.run(host='localhost', port='5050')
