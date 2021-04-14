@@ -7,7 +7,6 @@ class test_calculations(unittest.TestCase):
         #self.assertAlmostEqual(bmiFunctions.calcBMI(5, 5, 140), 23.8580)
         self.assertAlmostEquals(bmiFunctions.calcBMI(5,5,140), 23.8580, None, None, 0.0001)
         self.assertAlmostEquals(bmiFunctions.calcBMI(10, 10, 280), 11.9290, None, None, 0.0001)
-        self.assertAlmostEquals(bmiFunctions.calcBMI(0, 0, 0), 0, None, None, 0)
         self.assertAlmostEquals(bmiFunctions.calcBMI(.1, .2, 1.1), 404.0816, None, None, 0.00001)
         self.assertAlmostEquals(bmiFunctions.calcBMI(100, 100, 2800), 0.0007456, None, None, 0.0001)
         self.assertAlmostEquals(bmiFunctions.calcBMI(10000, 10000, 280000), 0.000007456, None, None, 0.0001)
