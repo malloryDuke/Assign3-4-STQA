@@ -20,7 +20,7 @@ def getBMI():
     weight = str(weight)
 
     if ((int(feet) <= 0) or (int(inches) <= 0) or (int(weight) <= 0)):
-        finalBMI = "Feet, inches, or weight cannot be negative or equal to 0 -- Enter a valid feet, inches, or weight"
+        finalBMI = "Feet, inches, or weight cannot be negative or equal to 0 -- Enter valid inputs"
     else:
         bmi = bmiFunctions.calcBMI(int(feet), int(inches), int(weight))
         category = bmiFunctions.getBMICategory(bmi)
