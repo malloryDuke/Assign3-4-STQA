@@ -1,0 +1,87 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>BMI and Retirement Calculator</title>
+    <link rel="stylesheet" href="style.css" type="text/css"/>
+    <style>
+        body{
+            text-align: center;
+            margin: 1rem;
+        }
+        .btn{
+            background-color: maroon;
+            color: white;
+        }
+        .text{
+            color: maroon;
+            font-size: 15px;
+            font-weight: bold;
+        }
+        .header{
+            color:maroon;
+        }
+        .answer{
+            display:inline-block;
+            border: double;
+            background: none;
+            height: 25px;
+            width: 300px;
+            font-weight: bold;
+            font-size: 15px;
+            text-align: center;
+            color: maroon;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h1 class="header"><b>BMI and Retirement Calculator</b></h1>
+    </div>
+    <div>
+        <form action="/getBMI" method="post">
+            <p class="text">Feet:</p>
+            <p>
+                <input type="number" name="feet" style="width: 240px; height: 25px;" value="{{feet}}"/>
+            </p>
+            <p class="text">Inches:</p>
+            <p>
+                <input type="number" name="inches" style="width: 240px; height: 25px;" value="{{inches}}"/>
+            </p>
+            <p class="text">Weight:</p>
+            <p>
+                <input type="number" name="weight" style="width: 240px; height: 25px;" value="{{weight}}"/>
+            </p>
+            <button class="btn">Calculate BMI</button><br /><br />
+            <div class="answer">
+                {{bmi}}
+            </div>
+        </form>
+    </div>
+    <div>
+        <form action="/getRetAge" method="post">
+            <p class="text">Current age:</p>
+            <p>
+                <input type="number" name="age" style="width: 240px; height: 25px;" value="{{currentAge}}"/>
+            </p>
+            <p class="text">Annual Salary:</p>
+            <p>
+                <input type="number" name="salary" style="width: 240px; height: 25px;" value="{{salary}}"/>
+            </p>
+            <p class="text">Percentage Saved:</p>
+            <p>
+                <input type="number" name="perSave" style="width: 240px; height: 25px;" value="{{perSaved}}"/>
+            </p>
+            <p class="text">Desired Retirement Saving Goal:</p>
+            <p>
+                <input type="number" name="goal" style="width: 240px; height: 25px;" value="{{goal}}"/>
+            </p>
+            <button class="btn">Get Retirement Age</button><br /><br />
+            <div class="answer">
+                {{retAge}}
+            </div>
+        </form>
+    </div>
+</body>
+</html>
