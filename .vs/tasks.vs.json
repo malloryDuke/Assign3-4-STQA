@@ -1,0 +1,10 @@
+{
+  "version": "0.2.1",
+  "tasks": [
+    {
+      "taskLabel": "task-Assign3-4-STQA",
+      "appliesTo": "/",
+      "type": "launch"
+    }
+  ]
+}
