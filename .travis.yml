@@ -10,6 +10,6 @@ script:
   - python -m unittest tests.test_calculations
   - coverage run -m unittest tests.test_calculations
   - coverage report -m
-  - prospector test_calculations
+  - prospector run -m unittest tests.test_calculations
 after_success:
   - coveralls
