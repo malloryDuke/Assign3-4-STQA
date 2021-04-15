@@ -8,8 +8,8 @@ class test_calculations(unittest.TestCase):
         self.assertAlmostEqual(bmiFunctions.calcBMI(5,5,140), 23.8580, None, None, 0.0001)
         self.assertAlmostEqual(bmiFunctions.calcBMI(10, 10, 280), 11.9290, None, None, 0.0001)
         self.assertAlmostEqual(bmiFunctions.calcBMI(.1, .2, 1.1), 404.0816, None, None, 0.0001)
-        self.assertAlmostEqual(bmiFunctions.calcBMI(100, 100, 2800), 0.0007456, None, None, 0.0001)
-        self.assertAlmostEqual(bmiFunctions.calcBMI(10000, 10000, 280000), 0.000007456, None, None, 0.0001)
+        self.assertAlmostEqual(bmiFunctions.calcBMI(100, 100, 2800), 1.1929, None, None, 0.0001)
+        self.assertAlmostEqual(bmiFunctions.calcBMI(10000, 10000, 280000), 0.011929, None, None, 0.0001)
 
     def test_BMICat(self):
         self.assertEquals(bmiFunctions.getBMICategory(18.0), "underweight")
@@ -33,9 +33,9 @@ class test_calculations(unittest.TestCase):
     def test_retAge(self):
         self.assertEquals(retFunctions.getRetirementAge(45, 3444, 0.10, 16000), 80)
         self.assertEquals(retFunctions.getRetirementAge(5, 34, 0.5, 8000), 354)
-        self.assertEquals(retFunctions.getRetirementAge(0.5, 0.34, 0.0010, 16), 34859)
+        self.assertEquals(retFunctions.getRetirementAge(0.5, 0.34, 0.0010, 16), 34859.5)
         self.assertEquals(retFunctions.getRetirementAge(100, 100, 100, 100), 101)
-        self.assertEquals(retFunctions.getRetirementAge(0.1, 0.1, 0.1, 0.1), 8)
+        self.assertEquals(retFunctions.getRetirementAge(0.1, 0.1, 0.1, 0.1), 8.1)
         self.assertEquals(retFunctions.getRetirementAge(450, 34440, 0.20, 160000), 468)
         self.assertEquals(retFunctions.getRetirementAge(100, 100, 100, 100), 101)
 

@@ -3,7 +3,7 @@ def calcBMI(feet, inches, weight):
     convertedWeight = weight * 0.45
     convertedHeight = totalInches * 0.025
     convHeightSqr = convertedHeight * convertedHeight
-    return convertedWeight/convHeightSqr
+    return convertedWeight/convHeightSqr 10562500
 
 def getBMICategory(bmi):
     if (bmi < 18.5):
