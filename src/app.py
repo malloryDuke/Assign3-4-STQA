@@ -19,7 +19,9 @@ def getBMI():
     inches = str(inches)
     weight = str(weight)
 
-    if ((int(feet) <= 0) or (int(inches) <= 0) or (int(weight) <= 0)):
+    if ((len(feet) == 0) or (len(inches) == 0) or (len(weight) == 0)):
+        finalBMI = "Must enter all values"
+    elif ((int(feet) <= 0) or (int(inches) <= 0) or (int(weight) <= 0)):
         finalBMI = "Feet, inches, or weight cannot be negative or equal to 0 -- Enter valid inputs"
     else:
         bmi = bmiFunctions.calcBMI(int(feet), int(inches), int(weight))
@@ -40,7 +42,9 @@ def getRetAge():
     salary = str(salary)
     goal = str(goal)
 
-    if (not perSaved.isdigit()):
+    if ((len(age) == 0) or (len(salary)==0) or (len(perSaved) == 0) or (len(goal) == 0)):
+        retAge = "Must enter all values"
+    elif (not perSaved.isdigit()):
         retAge = "Percent saved must be an integer -- Enter valid percent value"
     else:
         perSaved = str(perSaved)
@@ -49,7 +53,7 @@ def getRetAge():
         elif (float(salary) <= 0):
             retAge = "Salary cannot be negative or equal to 0 -- Enter a correct salary"
         elif((float(perSaved) <= 0)):
-            retAge = "Percent saved cannot be negative, 0, or a letter -- Enter a correct value"
+            retAge = "Percent saved cannot be negative or 0 -- Enter a correct value"
         elif (float(goal) <= 0):
             retAge = "Savings goal cannot be negative or 0 -- Enter a valid savings goal"
         else:
