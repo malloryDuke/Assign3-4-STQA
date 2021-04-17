@@ -38,21 +38,25 @@ def getRetAge():
 
     age = str(age)
     salary = str(salary)
-    perSaved = str(perSaved)
     goal = str(goal)
 
-    if (int(age) <= 0):
-        retAge = "Current age cannot be negative or equal to 0 -- Enter a correct age"
-    elif (int(salary) <= 0):
-        retAge = "Salary cannot be negative or equal to 0 -- Enter a correct salary"
-    elif (float(perSaved) <= 0):
-        retAge = "Percent saved cannot be negative or 0 -- Enter a correct value"
-    elif (int(goal) <= 0):
-        retAge = "Savings goal cannot be negative or 0 -- Enter a valid savings goal"
+    if (not perSaved.isdigit()):
+        retAge = "Percent saved must be an integer -- Enter valid percent value"
     else:
-        retAgeValue = retFunctions.getRetirementAge(int(age), int(salary), float(perSaved), int(goal))
-        retCat = retFunctions.getRetirementCategory(retAgeValue)
-        retAge = "Your retirment age is: " + str(retAgeValue) + " - " + retCat
+        perSaved = str(perSaved)
+        if (float(age) <= 0):
+            retAge = "Current age cannot be negative or equal to 0 -- Enter a correct age"
+        elif (float(salary) <= 0):
+            retAge = "Salary cannot be negative or equal to 0 -- Enter a correct salary"
+        elif((float(perSaved) <= 0)):
+            retAge = "Percent saved cannot be negative, 0, or a letter -- Enter a correct value"
+        elif (float(goal) <= 0):
+            retAge = "Savings goal cannot be negative or 0 -- Enter a valid savings goal"
+        else:
+            perSavedDec = (float(perSaved)/100.0)
+            retAgeValue = retFunctions.getRetirementAge(float(age), float(salary), float(perSavedDec), float(goal))
+            retCat = retFunctions.getRetirementCategory(retAgeValue)
+            retAge = "Your retirement age is: " + str(retAgeValue) + " - " + retCat
 
     return render_template('main.html', retAge = retAge, currentAge = age, salary=salary, perSaved=perSaved, goal=goal)
 
