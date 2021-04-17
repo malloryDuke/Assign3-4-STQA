@@ -1,8 +1,10 @@
 {
   "ExpandedNodes": [
     "",
-    "\\src",
-    "\\src\\templates"
+    "\\src\\css",
+    "\\src\\templates",
+    "\\tests"
   ],
+  "SelectedNode": "\\config.py",
   "PreviewInSolutionExplorer": false
 }

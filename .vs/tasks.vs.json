@@ -5,6 +5,11 @@
       "taskLabel": "task-Assign3-4-STQA",
       "appliesTo": "/",
       "type": "launch"
+    },
+    {
+      "taskLabel": "task-Assign3-4-STQA",
+      "appliesTo": "/",
+      "type": "launch"
     }
   ]
 }
