@@ -1,10 +1,11 @@
 {
   "ExpandedNodes": [
     "",
+    "\\src",
     "\\src\\css",
     "\\src\\templates",
     "\\tests"
   ],
-  "SelectedNode": "\\config.py",
+  "SelectedNode": "\\Procfile",
   "PreviewInSolutionExplorer": false
 }
