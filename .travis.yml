@@ -11,8 +11,9 @@ script:
   - coverage run -m unittest tests.test_calculations
   - coverage report -m
   - pyflakes src/app.py
-  - pyflakes src/bmiFunctions.py
-  - pyflakes src/retFunctions.py
+  - pyflakes src/bmi_functions.py
+  - pyflakes src/ret_functions.py
+  - pyflakes src/validation_functions.py
   - pyflakes tests/test_calculations.py
 after_success:
   - coveralls

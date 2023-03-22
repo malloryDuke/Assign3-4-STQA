@@ -1,13 +1,16 @@
 from flask import Flask, render_template, request
-import bmiFunctions
-import retFunctions
+import bmi_functions
+import ret_functions
+import validation_functions
 
 app = Flask(__name__)
 app.secret_key = '123'
 
+
 @app.route('/')
 def main():
     return render_template('main.html')
+
 
 @app.route('/getBMI', methods=['POST'])
 def getBMI():
@@ -15,54 +18,42 @@ def getBMI():
     inches = request.form['inches']
     weight = request.form['weight']
 
-    feet = str(feet)
-    inches = str(inches)
-    weight = str(weight)
+    string_inputs = [feet, inches, weight]
+    answer = validation_functions.perform_validations(string_inputs, True)
 
-    if ((len(feet) == 0) or (len(inches) == 0) or (len(weight) == 0)):
-        finalBMI = "Must enter all values"
-    elif ((int(feet) <= 0) or (int(inches) <= 0) or (int(weight) <= 0)):
-        finalBMI = "Feet, inches, or weight cannot be negative or equal to 0 -- Enter valid inputs"
+    if not isinstance(answer, bool):
+        final_bmi = answer
     else:
-        bmi = bmiFunctions.calcBMI(int(feet), int(inches), int(weight))
-        category = bmiFunctions.getBMICategory(bmi)
-        formatBMI = "{:.4f}".format(bmi)
-        finalBMI = "Your BMI is: " + str(formatBMI) + " [" + category + "]"
+        int_inputs = list((map(int, string_inputs)))
+        bmi = bmi_functions.calc_bmi(int_inputs[0], int_inputs[1], int_inputs[2])
+        category = bmi_functions.get_bmi_category(bmi)
+        format_bmi = "{:.4f}".format(bmi)
+        final_bmi = "Your BMI is: " + str(format_bmi) + " [" + category + "]"
 
-    return render_template('main.html', bmi=finalBMI, feet=feet, inches=inches, weight=weight)
+    return render_template('main.html', bmi=final_bmi, feet=feet, inches=inches, weight=weight)
+
 
 @app.route('/getRetAge', methods=['POST'])
 def getRetAge():
     age = request.form['age']
     salary = request.form['salary']
-    perSaved = request.form['perSave']
+    per_saved = request.form['perSave']
     goal = request.form['goal']
 
-    age = str(age)
-    salary = str(salary)
-    goal = str(goal)
+    string_inputs = [age, salary, per_saved, goal]
+    answer = validation_functions.perform_validations(string_inputs, False)
 
-    if ((len(age) == 0) or (len(salary)==0) or (len(perSaved) == 0) or (len(goal) == 0)):
-        retAge = "Must enter all values"
-    elif (not perSaved.isdigit()):
-        retAge = "Percent saved must be an integer -- Enter valid percent value"
+    if not isinstance(answer, bool):
+        ret_age = answer
     else:
-        perSaved = str(perSaved)
-        if (float(age) <= 0):
-            retAge = "Current age cannot be negative or equal to 0 -- Enter a correct age"
-        elif (float(salary) <= 0):
-            retAge = "Salary cannot be negative or equal to 0 -- Enter a correct salary"
-        elif((float(perSaved) <= 0)):
-            retAge = "Percent saved cannot be negative or 0 -- Enter a correct value"
-        elif (float(goal) <= 0):
-            retAge = "Savings goal cannot be negative or 0 -- Enter a valid savings goal"
-        else:
-            perSavedDec = (float(perSaved)/100.0)
-            retAgeValue = retFunctions.getRetirementAge(float(age), float(salary), float(perSavedDec), float(goal))
-            retCat = retFunctions.getRetirementCategory(retAgeValue)
-            retAge = "Your retirement age is: " + str(retAgeValue) + " - " + retCat
+        float_inputs = list((map(float, string_inputs)))
+        per_saved_dec = (float_inputs[2] / 100.0)
+        ret_age_value = ret_functions.get_retirement_age(float_inputs[0], float_inputs[1], float(per_saved_dec), float_inputs[3])
+        ret_cat = ret_functions.get_retirement_category(ret_age_value)
+        ret_age = "Your retirement age is: " + str(ret_age_value) + " - " + ret_cat
 
-    return render_template('main.html', retAge = retAge, currentAge = age, salary=salary, perSaved=perSaved, goal=goal)
+    return render_template('main.html', retAge=ret_age, currentAge=age, salary=salary, perSaved=per_saved, goal=goal)
 
-#host='localhost', port='5050'
+
+# host='localhost', port='5050'
 app.run()
