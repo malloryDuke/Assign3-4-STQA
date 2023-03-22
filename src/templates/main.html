@@ -43,15 +43,15 @@
         <form action="/getBMI" method="post">
             <p class="text">Feet:</p>
             <p>
-                <input id="feet" type="number" name="feet" style="width: 240px; height: 25px;" value="{{feet}}"/>
+                <input id="feet" type="number" name="feet" min= 1 style="width: 240px; height: 25px;" value="{{feet}}" placeholder="0"/>
             </p>
             <p class="text">Inches:</p>
             <p>
-                <input id="inches" type="number" name="inches" style="width: 240px; height: 25px;" value="{{inches}}"/>
+                <input id="inches" type="number" name="inches" min="1"  max=11 style="width: 240px; height: 25px;" value="{{inches}}" placeholder="0"/>
             </p>
             <p class="text">Weight:</p>
             <p>
-                <input id="weight" type="number" name="weight" style="width: 240px; height: 25px;" value="{{weight}}"/>
+                <input id="weight" type="number" name="weight" min="1" style="width: 240px; height: 25px;" value="{{weight}}" placeholder="0"/>
             </p>
             <button id="btn" class="btn">Calculate BMI</button><br /><br />
             <div class="answer">
@@ -63,19 +63,19 @@
         <form action="/getRetAge" method="post">
             <p class="text">Current age:</p>
             <p>
-                <input id="age" type="number" name="age" style="width: 240px; height: 25px;" value="{{currentAge}}"/>
+                <input id="age" type="number" name="age" min=1 style="width: 240px; height: 25px;" value="{{currentAge}}"/>
             </p>
             <p class="text">Annual Salary:</p>
             <p>
-                <input id="salary" type="number" name="salary" style="width: 240px; height: 25px;" value="{{salary}}"/>
+                <input id="salary" type="number" name="salary" min=1 style="width: 240px; height: 25px;" value="{{salary}}"/>
             </p>
             <p class="text">Percent of Annual Salary Saved (if 10%, enter 10):</p>
             <p>
-                <input id="perSave" type="number" name="perSave" style="width: 240px; height: 25px;" value="{{perSaved}}"/>
+                <input id="perSave" type="number" name="perSave" min=1 style="width: 240px; height: 25px;" value="{{perSaved}}"/>
             </p>
             <p class="text">Desired Retirement Saving Goal:</p>
             <p>
-                <input id="goal" type="number" name="goal" style="width: 240px; height: 25px;" value="{{goal}}"/>
+                <input id="goal" type="number" name="goal" min=1 style="width: 240px; height: 25px;" value="{{goal}}"/>
             </p>
             <button id="btn2" class="btn">Get Retirement Age</button><br /><br />
             <div class="answer">
